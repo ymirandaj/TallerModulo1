@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TallerModulo1.Views.Home">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Bienvenido" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"></Label>
+                        <Label Text=" Yomar" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"></Label>
+                    </StackLayout>
+                    
+                </Frame>
+                <StackLayout Margin="0,10">
+                    <Label Text="Locales Afiliados"
+                           FontAttributes="Bold"
+                           FontSize="15"></Label>
+                    <CollectionView x:Name="CLLocales"
+                                    SelectionMode="Single"
+                                    HeightRequest="250">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal"
+                                               ItemSpacing="0"></LinearItemsLayout>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Spacing="0">
+                                    <Frame CornerRadius="10" 
+                                           HasShadow="True">
+                                        <StackLayout >
+                                            <Image HeightRequest="200"
+                                                   WidthRequest="200"
+                                                   Source="{Binding ImageUrl}"></Image>
+                                            <Label FontAttributes="Bold"
+                                                   FontSize="15"
+                                                   Text="{Binding NombreLocalAfiliado}"></Label>
+                                        </StackLayout>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
