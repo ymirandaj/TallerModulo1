@@ -60,7 +60,30 @@ namespace TallerModulo1.Views
             CLLocales.ItemsSource = Locales;
         }
 
+        private async void CLLocales_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.CurrentSelection.Any())
+            {
+                
+                LocalesAfiliados Local = CLLocales.SelectedItem as LocalesAfiliados;
+                bool DeAcuerdo = false;
+                DeAcuerdo = await DisplayAlert("Confirmar", "Seguro de seleccionar la tienda  " + Local.NombreLocalAfiliado, " De Acuerdo","Cancel");
 
+                if (DeAcuerdo)
+                {
+                    //var NombreLocal = (CLLocales.SelectedItem as LocalesAfiliados)?.NombreLocalAfiliado;
+                    TxtIdLocal.Text = Local.IdLocal;
+                    TxtNombreLocal.Text = Local.NombreLocalAfiliado;
+                    InfoLocal.IsVisible = true;
+                    // DisplayAlert("Mensaje", "Udted ha seleccionado la tienda  " + Local.NombreLocalAfiliado, " De Acuerdo");
+                }
+                CLLocales.SelectedItem = null;
+            }
+        }
 
+        private async void BtnProductos_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new Producto(TxtIdLocal.Text, TxtNombreLocal.Text), true);
+        }
     }
 }

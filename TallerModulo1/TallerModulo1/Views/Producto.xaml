@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TallerModulo1.Views.Producto"
+             Title="Productos">
+    <ContentPage Title="Productos">
+        <ContentPage.Content>
+            <ScrollView>
+                <CollectionView x:Name="CLProductos"
+                                    SelectionMode="Single"
+                                    HeightRequest="200"
+                                    >
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical"
+                                               ItemSpacing="0"></LinearItemsLayout>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Spacing="0">
+                                <Frame CornerRadius="10" 
+                                           HasShadow="True">
+                                    <StackLayout Orientation="Horizontal" >
+
+                                        <Label FontAttributes="Bold"
+                                                   FontSize="15"
+                                                   Text="{Binding IdProducto}"
+                                                   IsVisible="False"></Label>
+                                        <Image HeightRequest="50"
+                                                   WidthRequest="50"
+                                                   Source="{Binding UrlImage}"></Image>
+                                        <StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label FontAttributes="Bold"
+                                                   FontSize="15"
+                                                   Text="Noimbre: "
+                                                    HorizontalOptions="Start"></Label>
+                                                <Label FontAttributes="Bold"
+                                                   FontSize="15"
+                                                   Text="{Binding Nombre}"
+                                               HorizontalOptions="StartAndExpand"></Label>
+
+
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label FontAttributes="Bold"
+                                                   FontSize="15"
+                                                   Text="Descripcion: "
+                                                    HorizontalOptions="Start"></Label>
+                                                <Label FontAttributes="Bold"
+                                                   FontSize="15"
+                                                   Text="{Binding Descripcion}"
+                                               HorizontalOptions="StartAndExpand"></Label>
+
+
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label FontAttributes="Bold"
+                                                   FontSize="15"
+                                                   Text="Precio: "
+                                                    HorizontalOptions="Start"></Label>
+                                                <Label FontAttributes="Bold"
+                                                   FontSize="15"
+                                                   Text="{Binding Price}"
+                                               HorizontalOptions="StartAndExpand"></Label>
+
+
+                                            </StackLayout>
+                                        </StackLayout>
+                                       
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage Title="Descripcion">
+        <ContentPage.Content>
+            <ScrollView>
+
+            </ScrollView>
+        </ContentPage.Content>
+    </ContentPage>
+    <ContentPage Title="Tiendas">
+        <ContentPage.Content>
+            <ScrollView>
+                
+            </ScrollView>
+        </ContentPage.Content>
+    </ContentPage>
+</TabbedPage>
